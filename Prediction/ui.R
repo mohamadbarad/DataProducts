@@ -6,8 +6,10 @@
 #
 #    http://shiny.rstudio.com/
 #
-
+library(plotly)
 library(shiny)
+library(dplyr)
+
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(

@@ -1,0 +1,51 @@
+---
+title: "Exploring mtcars"
+author: "Mohamad Barad"
+date: "06-02-2022"
+output: ioslides_presentation
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, cache = TRUE)
+
+# Loading packages
+library(plotly)
+```
+
+## Introduction
+This presentation should supplement the project thereby giving a summary of one of the models that could be obtained in the shiny application
+First, the shiny application could be developed much more, with this examples of further development include
+
+- Including tabs
+- Including summary tables
+- Working on labels and legends  
+- Adding the summary of the fitted model
+- Using new data to predict new values 
+- Etc. 
+
+## mtcars data set
+So the data set explored in the shiny application was 'mtcars'
+```{r mtcars, echo = TRUE}
+# taking a look on the top of mtcars data set
+head(mtcars)
+
+```
+
+## Plotting {.smaller}
+Here mpg is a function of hp and cyl
+
+```{r plot, echo = TRUE,fig.height=4}
+plot_ly(mtcars, x= ~hp, y=~mpg , color = ~as.factor(cyl), 
+        type = "scatter", mode= "markers")
+```
+
+## lm model output {.smaller}
+```{r model, echo=TRUE}
+# fitting a linear model
+fit <- lm(mpg ~ hp , mtcars)
+# Looking at the summary 
+summary(fit)
+```
+
